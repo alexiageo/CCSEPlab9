@@ -50,6 +50,8 @@ Review the program code and try to spot the vulnerability.
 The program is vulnerable to Numeric Imprecision.
 Perform both run-time and static analysis to trigger and test for this vulnerability.
 
+You can use the test data that has been shown in the slides (Slide number 70).
+
 === Task 3
 
 Review `test/java/appSpec.java` and see how the tests work.

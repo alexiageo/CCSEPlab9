@@ -55,6 +55,8 @@ Perform both run-time and static analysis to test for this vulnerability.
 See if you can figure out a way to use the bug to bypass approval for an amount
 that should otherwise require approval.
 
+You can try to use the test data that has been shown in the lecture slides (Slide number 37).
+
 === Task 3
 
 Review `test/java/appSpec.java` and see how the tests work.
