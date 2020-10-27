@@ -1,0 +1,83 @@
+= Numeric Imprecision
+
+//tag::abstract[]
+
+Numeric Imprecision happens
+when floating-point arithmetic or coercion result into
+less accurate number which has significant impact on          
+the context of the program.
+
+//end::abstract[]
+
+For example,
+`double` is a double-precision 64-bit binary format IEEE
+754 value and ranges between -(2^53^-1) and 2^53^-1).
+
+Beyond this range, it is not safe to perform operations on the number as the
+number will be approximation of the value. 
+Furthermore, coercion of numbers that are not prime factor of 2
+may result
+into less accurate number because of rounding.
+
+This issue can cause logic bypass and often
+result in serious impact.
+
+//tag::lab[]
+
+== Lab
+
+=== Task 0
+
+Clone this repository.
+Install `docker` and `make` on your system.
+
+. Build the program: `make build`.
+. Run it: `make run`.
+. Run unit tests: `make test`.
+. Run security tests: `make securitytest`.
+
+[NOTE]
+--
+There are no security tests. You will write them later on.
+--
+
+=== Task 1
+
+Review the program code and try to spot the vulnerability.
+
+=== Task 2
+
+The program is vulnerable to Numeric Imprecision.
+Perform both run-time and static analysis to trigger and test for this vulnerability.
+
+=== Task 3
+
+Review `test/java/appSpec.java` and see how the tests work.
+Your task is to write tests to test for edge cases that can trigger the vulnerability.
+
+You should write the tests `test/java/appSecuritySpec.java` file. Use the comments as a guide, and feel free to write some extra tests if you can think of more edge cases.
+
+[IMPORTANT]
+--
+The security tests you write should fail. You do not have to patch the program to make the tests pass (and subsequently fix the vulnerability) in this lab.
+--
+
+[NOTE]
+--
+Use the existing test code in `test/java/appSpec.java` as a guide. The libraries required for you are also already imported in `test/java/appSecuritySpec.java`. Google is your friend.
+--
+
+//end::lab[]
+
+//tag::references[]
+
+== References
+
+* OWASP Application Security Verification Standard 4.0, 5.4.3
+* CWE 190
+
+//end::references[]
+
+== License
+
+See link:LICENSE[]

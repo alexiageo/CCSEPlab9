@@ -1,0 +1,6 @@
+== Contributing
+
+* Enhance the readability of the program
+* Improve security unit tests
+* Apply a better security patch
+* Fix bugs

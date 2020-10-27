@@ -1,0 +1,84 @@
+= Numeric overflow
+
+//tag::abstract[]
+
+Numeric overflow in Java is commonly overlooked. 
+This vulnerability appears where the range of
+numeric is not being validated.
+
+//end::abstract[]
+
+For example, 
+Integer in Java is 32 bits, therefore it ranges
+between -/+2,147,483,647.
+
+If a given value is bigger or smaller than Integer
+range, the variable overflows and turn to a negative
+or positive numbers respectively.
+
+This vulnerability can cause logic bypass often
+result in serious impact. Think how in a banking
+application a daily transaction threshold can get
+passed by using this vulnerability?
+
+This vulnerabilities affects all numeric types
+that do no use dynamic memory allocation.
+
+//tag::lab[]
+
+== Lab
+
+=== Task 0
+
+*Fork* and clone this repository.
+Install `docker` and `make` on your system.
+
+. Build the program: `make build`.
+. Run it: `make run`.
+. Run unit tests: `make test`.
+. Run security tests: `make securitytest`.
+
+[NOTE]
+--
+There are no security tests. You will write them later on.
+--
+
+=== Task 1
+
+There is a bug in the code.
+Run the project and give it an amount.
+Review the program code and try to find the bug.
+
+=== Task 2
+
+Perform both run-time and static analysis to test for this vulnerability.
+See if you can figure out a way to use the bug to bypass approval for an amount
+that should otherwise require approval.
+
+=== Task 3
+
+Review `test/java/appSpec.java` and see how the tests work.
+Your task is to write tests to test for edge cases that can trigger the vulnerability.
+
+You should write the tests `test/java/appSecuritySpec.java` file. Use the comments as a guide, and feel free to write some extra tests if you can think of more edge cases.
+
+[IMPORTANT]
+--
+The security tests you write should fail. You do not have to patch the program to make the tests pass (and subsequently fix the vulnerability) in this lab.
+--
+
+[NOTE]
+--
+Use the existing test code in `test/java/appSpec.java` as a guide. The libraries required for you are also already imported in `test/java/appSecuritySpec.java`. Google is your friend.
+--
+
+== References
+
+* OWASP Application Security Verification Standard 4.0, 5.4.3
+* CWE 190
+
+//end::references[]
+
+== License
+
+See link:LICENSE[]

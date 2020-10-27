@@ -1,0 +1,33 @@
+image: docker:19.03.10
+
+services:
+  - docker:19.03.10-dind
+
+before_script:
+  - apk add --no-cache make
+
+stages:
+  - test
+  - securitytest
+
+test:
+  stage: test
+  only:
+    - master
+  except:
+    changes:
+      - "*.adoc"
+      - "*.md"
+  script:
+    - make test
+
+securitytest:
+  stage: test
+  only:
+    - master
+  except:
+    changes:
+      - "*.adoc"
+      - "*.md"
+  script:
+    - make securitytest

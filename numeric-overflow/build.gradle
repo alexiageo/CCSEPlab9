@@ -1,0 +1,47 @@
+plugins {
+    id "java"
+}
+
+sourceSets { 
+    main.java.srcDir "main"
+    test.java.srcDir "test"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+}
+
+jar {
+   manifest.attributes 'Main-Class': 'app.Main'
+   baseName 'app'
+}
+
+test {
+    useJUnitPlatform{
+        excludeTags 'security'
+    }
+    testLogging { 
+        showStandardStreams = true
+    }
+}
+
+task securityTest(type: Test) {
+    group 'Security test'
+    description 'Run the security tests.'
+    useJUnitPlatform{
+        includeTags 'security'
+    }
+    testLogging { 
+        showStandardStreams = true
+    }
+}
+
+task getDeps(type: Copy) {
+    from sourceSets.test.runtimeClasspath
+    into 'runtime/'
+}
