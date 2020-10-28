@@ -30,7 +30,7 @@ that do no use dynamic memory allocation.
 
 === Task 0
 
-*Fork* and clone this repository.
+Clone this repository.
 Install `docker` and `make` on your system.
 
 . Build the program: `make build`.
