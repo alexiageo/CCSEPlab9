@@ -32,13 +32,6 @@ public class appSecuritySpec {
         // Test
     }
 
-    // Test to make sure an amount smaller than the min value of
-    // an Integer after the surcharge is calculated throws an exception
-    @Test
-    public void amount_less_than_IntMin_after_surchage_throw_exception() {
-        // Test
-    }
-
     // Test to make sure a negative amount throws an exception
     @Test
     public void amount_negative_throw_exception() {
