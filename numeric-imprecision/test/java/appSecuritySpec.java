@@ -24,19 +24,19 @@ public class appSecuritySpec {
     }
 
     // Test to ensure that passing an amount smaller than the min
-    // value for a Double throws an exception
+    // value for a Double throws an IllegalArgumentException
     @Test
     public void amount_less_than_doubleMin_throw_exception() {
         // Test
     }
 
-    // Test to ensure a negative amount throws an exception
+    // Test to ensure a negative amount throws an IllegalArgumentException
     @Test
     public void amount_negative_throw_exception() {
         // Test
     }
 
-    // Test to ensure that an amount of 0 throws an exception
+    // Test to ensure that an amount of 0 throws an NullPointerException
     @Test
     public void amount_zero_throw_exception() {
         // Test

@@ -12,39 +12,39 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Tag("security")
 public class appSecuritySpec {
     // Test to make sure an amount bigger than the max value of
-    // an Integer throws an exception
+    // an Integer throws an ArithmeticException
     @Test
     public void amount_bigger_than_IntMax_throw_exception() {
         // Test
     }
 
     // Test to make sure an amount smaller than the min value of
-    // an Integer throws an exception
+    // an Integer throws an ArithmeticException
     @Test
     public void amount_less_than_IntMin_throw_exception() {
         // Test
     }
 
     // Test to make sure an amount larger than the max value of
-    // an Integer after the surcharge is calculated throws an exception
+    // an Integer after the surcharge is calculated throws an ArithmeticException
     @Test
     public void amount_bigger_than_IntMax_after_surchage_throw_exception() {
         // Test
     }
 
-    // Test to make sure a negative amount throws an exception
+    // Test to make sure a negative amount throws an ArithmeticException
     @Test
     public void amount_negative_throw_exception() {
         // Test
     }
 
-    // Test to make sure an amount of 0 throws an exception
+    // Test to make sure an amount of 0 throws an IllegalArgumentException
     @Test
     public void amount_zero_throw_exception() {
         // Test
     }
 
-    // Test to make sure an amount of null throws an exception
+    // Test to make sure an amount of null throws a NullPointerException
     @Test
     public void amount_null_throw_exception() {
         // Test
