@@ -69,6 +69,31 @@ The security tests you write should fail. You do not have to patch the program t
 Use the existing test code in `test/java/appSpec.java` as a guide. The libraries required for you are also already imported in `test/java/appSecuritySpec.java`. Google is your friend.
 --
 
+== Lab 10
+
+[IMPORTANT]
+--
+Make sure you've completed Tasks 1-3 before attempting the remaining tasks!
+--
+
+For this lab, you should create a new branch for each task. If you're unfamiliar with how branching works in git, https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging[have a read of this].
+
+=== Task 1
+
+Patch the vulnerability in the program by applying the pre-condition check. You can use either a safe addition implementation, or a safe subtraction implementation, whichever makes sense. You may have to modify your security tests slightly (either just modify them, or remove a few redundant ones) depending on how you choose to write the patch.
+
+=== Task 2
+
+Patch the vulnerability in the program by applying an upcasting check. You may have to modify your security tests slightly (either just modify them, or remove a few redundant ones) depending on how you choose to write the patch.
+
+=== Task 3
+
+Patch the vulnerability in the program by using a dynamic type. You can use a built-in type, but it is highly recommended that you instead write your own dynamic type as a wrapper around the built-in type. If you want more work, then implement your own dynamic type from scratch without depending on any built-in types (except for the usual ones of course, i.e Strings, integers, longs, etc are all allowed). You will most definitely have to modify your security tests when you write this patch.
+
+=== Task 4
+
+Depending on how you've completed the previous three tasks, it may make sense to combine them all together (in some fashion). In this task, you should do just that: combine the patches from the previous three tasks into one. You will probably have to make modifications to your security tests again.
+
 //end::lab[]
 
 //tag::references[]
