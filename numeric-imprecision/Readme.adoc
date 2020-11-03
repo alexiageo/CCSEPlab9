@@ -88,7 +88,7 @@ Patch the vulnerability in the program by applying an upcasting check. You may h
 
 === Task 3
 
-Patch the vulnerability in the program by using a dynamic type. You can use a built-in type, but it is highly recommended that you instead write your own dynamic type as a wrapper around the built-in type. If you want more work, then implement your own dynamic type from scratch without depending on any built-in types (except for the usual ones of course, i.e Strings, integers, longs, etc are all allowed). You will most definitely have to modify your security tests when you write this patch.
+Patch the vulnerability in the program by using your own custom type. You can write a wrapper around a built-in type (such as the BigInteger class for example). If you finish this and still have more time (and are just curious in general), then implement your custom type from scratch without depending on any built-in types (except for the usual ones of course, i.e Strings, integers, longs, etc are all allowed). You will most definitely have to modify your security tests when you write this patch.
 
 === Task 4
 
