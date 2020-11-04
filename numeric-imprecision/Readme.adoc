@@ -80,19 +80,7 @@ For this lab, you should create a new branch for each task. If you're unfamiliar
 
 === Task 1
 
-Patch the vulnerability in the program by applying the pre-condition check. You can use either a safe addition implementation, or a safe subtraction implementation, whichever makes sense. You may have to modify your security tests slightly (either just modify them, or remove a few redundant ones) depending on how you choose to write the patch.
-
-=== Task 2
-
-Patch the vulnerability in the program by applying an upcasting check. You may have to modify your security tests slightly (either just modify them, or remove a few redundant ones) depending on how you choose to write the patch.
-
-=== Task 3
-
 Patch the vulnerability in the program by using your own custom type. You can write a wrapper around a built-in type (such as the BigInteger class for example). If you finish this and still have more time (and are just curious in general), then implement your custom type from scratch without depending on any built-in types (except for the usual ones of course, i.e Strings, integers, longs, etc are all allowed). You will most definitely have to modify your security tests when you write this patch.
-
-=== Task 4
-
-Depending on how you've completed the previous three tasks, it may make sense to combine them all together (in some fashion). In this task, you should do just that: combine the patches from the previous three tasks into one. You will probably have to make modifications to your security tests again.
 
 //end::lab[]
 
