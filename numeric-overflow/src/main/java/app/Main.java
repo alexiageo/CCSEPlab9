@@ -30,7 +30,22 @@ public class Main {
      * @return boolean
      */
     public boolean approval(String value){
+       //check for negative
+       if (Integer.parseInt(value) < 0)
+       {
+           throw new ArithmeticException("Number cannot be negative");
+       }
+
        int amount = Integer.parseInt(value) + surcharge;
+       
+       //check for overflow
+       if (amount < 0) //amount has overflowed past max
+       {
+           throw new ArithmeticException("Number has overflowed");
+       }
+
+
+//upcasting: convert to bigint check is greater than int32 limit, downcast if pass
        if(amount >= threshold) {
            return true;
        }
