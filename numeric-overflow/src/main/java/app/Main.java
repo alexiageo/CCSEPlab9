@@ -30,26 +30,30 @@ public class Main {
      * @return boolean
      */
     public boolean approval(String value){
-       //check for negative
-       if (Integer.parseInt(value) < 0)
-       {
-           throw new ArithmeticException("Number cannot be negative");
-       }
+        /* Pre-condition check, safe addition*/
 
-       int amount = Integer.parseInt(value) + surcharge;
+        //make all numbers BigInteger because initial input could already be out of int range
+        BigInteger val = new BigInteger(value);
+        BigInteger surch = BigInteger.valueOf(surcharge);
+        BigInteger maxInt = BigInteger.valueOf(Integer.MAX_VALUE);
+        BigInteger minInt = BigInteger.valueOf(Integer.MIN_VALUE);
+
+        if (value.signum() == 1) //if number is positive
+        {
+            if (val.compareTo(maxInt.subtract(surch)) == 1 // if val > maxInt - surcharge : overflow
+            ||  val.compareTo(minInt.subtract(surch)) == -1) //or if val < minInt - surcharge : underflow
+            {
+                //if overflow occurs, stop execution
+                throw new ArithmeticException("Invalid number. Overflow detected.");
+            }
+        }
+
+        int amount = Integer.parseInt(value) + surcharge;
        
-       //check for overflow
-       if (amount < 0) //amount has overflowed past max
-       {
-           throw new ArithmeticException("Number has overflowed");
-       }
-
-
-//upcasting: convert to bigint check is greater than int32 limit, downcast if pass
-       if(amount >= threshold) {
-           return true;
-       }
-       return false;
+        if(amount >= threshold) {
+            return true;
+        }
+        return false;
    }
 
 }
