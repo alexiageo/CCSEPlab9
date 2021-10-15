@@ -38,7 +38,7 @@ public class Main {
         BigInteger maxInt = BigInteger.valueOf(Integer.MAX_VALUE);
         BigInteger minInt = BigInteger.valueOf(Integer.MIN_VALUE);
 
-        if (value.signum() == 1) //if number is positive
+        if (val.signum() == 1) //if number is positive
         {
             if (val.compareTo(maxInt.subtract(surch)) == 1 // if val > maxInt - surcharge : overflow
             ||  val.compareTo(minInt.subtract(surch)) == -1) //or if val < minInt - surcharge : underflow
