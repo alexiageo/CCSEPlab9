@@ -30,24 +30,31 @@ public class Main {
      * @return boolean
      */
     public boolean approval(String value){
-        /* Pre-condition check, safe addition*/
+        /* Upcasting to BigInteger */
 
-        //make all numbers BigInteger because initial input could already be out of int range
         BigInteger val = new BigInteger(value);
         BigInteger surch = BigInteger.valueOf(surcharge);
-        BigInteger maxInt = BigInteger.valueOf(Integer.MAX_VALUE);
-        BigInteger minInt = BigInteger.valueOf(Integer.MIN_VALUE);
+        BigInteger result;
 
-        if (value.signum() == 1) //if number is positive
+        final BigInteger maxInt = BigInteger.valueOf(Integer.MAX_VALUE);
+        final BigInteger minInt = BigInteger.valueOf(Integer.MIN_VALUE);
+
+        if (val.signum() == 1) //if number is positive
         {
-            if (val.compareTo(maxInt.subtract(surch)) == 1 // if val > maxInt - surcharge : overflow
-            ||  val.compareTo(minInt.subtract(surch)) == -1) //or if val < minInt - surcharge : underflow
+            //if value is greater than MAX or less than MIN
+            if (val.compareTo(maxInt) == 1 ||  val.compareTo(minInt) == -1) 
             {
-                //if overflow occurs, stop execution
                 throw new ArithmeticException("Invalid number. Overflow detected.");
             }
         }
 
+        //if val does not overflow, do addition
+        result = val.add(surch); 
+        if (result.compareTo(maxInt) == 1 || result.compareTo(minInt) == -1)
+        {
+            throw new ArithmeticException("Invalid number. Overflow detected.");
+        }
+        
         int amount = Integer.parseInt(value) + surcharge;
        
         if(amount >= threshold) {
