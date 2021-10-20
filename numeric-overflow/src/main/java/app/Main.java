@@ -2,6 +2,7 @@ package app;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class Main {
 
@@ -41,11 +42,16 @@ public class Main {
         if (val.signum() == 1) //if number is positive
         {
             if (val.compareTo(maxInt.subtract(surch)) == 1 // if val > maxInt - surcharge : overflow
-            ||  val.compareTo(minInt.subtract(surch)) == -1) //or if val < minInt - surcharge : underflow
+            ||  val.compareTo(minInt.subtract(surch)) == -1
+            ||  val.compareTo(BigInteger.ZERO) == 0) //or if val < minInt - surcharge : underflow
             {
                 //if overflow occurs, stop execution
                 throw new ArithmeticException("Invalid number. Overflow detected.");
             }
+        }
+        else
+        {
+                throw new ArithmeticException("Negative number not allowed.");
         }
 
         int amount = Integer.parseInt(value) + surcharge;

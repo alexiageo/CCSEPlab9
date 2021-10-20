@@ -27,7 +27,7 @@ public class appSecuritySpec {
     public void amount_less_than_IntMin_throw_exception() {
          assertThrows(ArithmeticException.class, () -> {
             Main app = new Main();
-            boolean res = app.approval(Integer.toString(Integer.MIN_VALUE));
+            boolean res = app.approval(Integer.toString(Integer.MIN_VALUE - 1));
         });
   
     }
@@ -38,7 +38,7 @@ public class appSecuritySpec {
     public void amount_bigger_than_IntMax_after_surchage_throw_exception() {
            assertThrows(ArithmeticException.class, () -> {
             Main app = new Main();
-            boolean res = app.approval(Integer.toString(Integer.MAX_VALUE - 10));
+            boolean res = app.approval(Integer.toString(Integer.MAX_VALUE - 9));
         });
 
     }
