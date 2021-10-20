@@ -1,6 +1,7 @@
 package app;
 
 import java.util.Scanner;
+import java.math.BigDecimal;
 
 public class Main {
 
@@ -22,8 +23,8 @@ public class Main {
      * @return double
      */
     public static double getTaxedTotal(String value) {
-       double amount = Double.parseDouble(value);
-       return amount + (amount * tax);
+       BigDecimal amount = new BigDecimal(value);
+       return amount + (amount * BigDecimal.valueOf(tax));
    }
 
 }
