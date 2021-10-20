@@ -2,6 +2,7 @@ package app;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class Main {
 
@@ -46,6 +47,10 @@ public class Main {
             {
                 throw new ArithmeticException("Invalid number. Overflow detected.");
             }
+        }
+        else //throw exception if negative
+        {
+            throw new ArithmeticException("Invalid number. Overflow detected.");
         }
 
         //if val does not overflow, do addition
