@@ -2,6 +2,7 @@ package app;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class Main {
 
@@ -30,11 +31,41 @@ public class Main {
      * @return boolean
      */
     public boolean approval(String value){
-       int amount = Integer.parseInt(value) + surcharge;
-       if(amount >= threshold) {
-           return true;
-       }
-       return false;
+        /* Upcasting to BigInteger */
+
+        BigInteger val = new BigInteger(value);
+        BigInteger surch = BigInteger.valueOf(surcharge);
+        BigInteger result;
+
+        final BigInteger maxInt = BigInteger.valueOf(Integer.MAX_VALUE);
+        final BigInteger minInt = BigInteger.valueOf(Integer.MIN_VALUE);
+
+        if (val.signum() == 1) //if number is positive
+        {
+            //if value is greater than MAX or less than MIN
+            if (val.compareTo(maxInt) == 1 ||  val.compareTo(minInt) == -1) 
+            {
+                throw new ArithmeticException("Invalid number. Overflow detected.");
+            }
+        }
+        else //throw exception if negative
+        {
+            throw new ArithmeticException("Invalid number. Overflow detected.");
+        }
+
+        //if val does not overflow, do addition
+        result = val.add(surch); 
+        if (result.compareTo(maxInt) == 1 || result.compareTo(minInt) == -1)
+        {
+            throw new ArithmeticException("Invalid number. Overflow detected.");
+        }
+        
+        int amount = Integer.parseInt(value) + surcharge;
+       
+        if(amount >= threshold) {
+            return true;
+        }
+        return false;
    }
 
 }
