@@ -24,7 +24,8 @@ public class Main {
      */
     public static double getTaxedTotal(String value) {
        BigDecimal amount = new BigDecimal(value);
-       return amount + (amount * BigDecimal.valueOf(tax));
+       amount = amount.add(amount.multiply(BigDecimal.valueOf(tax)));
+       return amount.doubleValue();
    }
 
 }
